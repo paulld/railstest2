@@ -1,5 +1,7 @@
 class ArticlesController < ApplicationController
 
+  http_basic_authenticate_with name: "dhh", password: "secret", except: [:index, :show]
+
   def index
     @articles = Article.all
   end
@@ -12,6 +14,9 @@ class ArticlesController < ApplicationController
     @article = Article.new(article_params)
 
     if @article.save
+      # NB: to redict to the list of articles:
+      # redirect_to articles_path
+      # NB: to redirect to the newly created article:
       redirect_to @article
     else
       render 'new'
