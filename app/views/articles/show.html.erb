@@ -9,5 +9,9 @@
   <%= @article.text %>
 </p>
 <p>
-  <%= link_to 'Back to the list of articles', articles_path %>&nbsp;&nbsp;|&nbsp;&nbsp;<%= link_to 'Edit', edit_article_path(@article) %>
+  <%= link_to 'Back to the list of articles', articles_path %>
+  &nbsp;|&nbsp;
+  <%= link_to 'Delete', article_path(@article), method: :delete, data: {confirm: 'Are you sure?'} %>
+  &nbsp;|&nbsp;
+  <%= link_to 'Edit', edit_article_path(@article) %>
 </p>
